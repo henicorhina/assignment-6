@@ -2,16 +2,17 @@
 # encoding: utf-8
 
 import sys
+import math
 sys.setrecursionlimit(1100)
 
-def recursion_sum(x):
+def recursion_e(x):
     if x == 1000:
-        return x
+        return 0
     else:
-        return (x + recursion_sum(x+1))
+        return ((1/math.factorial(x)) + recursion_e(x+1))
 
 def main():
-    answer = recursion_sum(0)
+    answer = recursion_e(0)
     print(answer)
 
 if __name__ ==  '__main__':
