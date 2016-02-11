@@ -10,15 +10,14 @@ Oscar Johnson 9 February 2016
 def math ():
     x = input ("is coding fun? ")
     if x == "y":
-        print ("yeah!!")
+        print("yeah!!")
     elif x == "n":
-        print ("it's time to change careers")
+        print("it's time to change careers")
 
 
 def main():
-    math()
+    return math()
 
 
 if __name__ == '__main__':
     main()
-

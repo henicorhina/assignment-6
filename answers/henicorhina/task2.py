@@ -19,7 +19,7 @@ def recurse_sum(max_val = 100):
 
 
 def main():
-    print (recurse_sum())
+    print(recurse_sum())
 
 
 if __name__ == '__main__':

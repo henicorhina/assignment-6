@@ -5,32 +5,28 @@
 BIOL7800 assignment 6
 Oscar Johnson 9 February 2016
 """
+
 import math
 import sys
-sys.setrecursionlimit(10000)
+
+sys.setrecursionlimit(5000)
 
 
-
-def e_recursive_estimator(n = 0, limit = 0):
-
+def e_recursive_estimator(limit, n=0):
     """
-    estimates Euler's e using recursion
-    user input of the upper limit over which to estimate e
+    Estimates Euler's e using recursion
+    with no user input
     """
-    
-    if n == 0:
-        limit2 = int(input("enter maximum value for recursion: "))
-        return (1/math.factorial(n)) + e_recursive_estimator(n+1, limit2)
- 
-    elif n <= limit:
-        return (1/math.factorial(n)) + e_recursive_estimator(n+1, limit)
-        
+    if n > limit:
+        return 0 
     else:
-        return 0
+        n+=1
+        return (1/math.factorial(n-1)) + e_recursive_estimator(limit, n)
 
 
 def main():
-    print (e_recursive_estimator())
+    limit = int(input("enter maximum value for recursion: "))
+    print(e_recursive_estimator(limit))
 
 
 if __name__ == '__main__':

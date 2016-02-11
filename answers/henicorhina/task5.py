@@ -10,7 +10,7 @@ import argparse
 import math
 import sys
 
-sys.setrecursionlimit(1000)
+sys.setrecursionlimit(5000)
 
 
 def get_args():
@@ -19,33 +19,32 @@ def get_args():
                 )
     
     parser.add_argument(
-                "recursion_depth",
-                help = "the maximum number of times over which to run the recursive function",
-                type = int
+                "--recursion_depth",
+                dest = "recursion_depth",
+                required = True,
+                type = int,
+                help = "the maximum number of times over which to run the recursive function"
                 )
-    #get_args.recursion_depth
     return parser.parse_args()
 
-def e_recursive_estimator(args, n = 0):
 
+def e_recursive_estimator(args, n=0):
     """
-    estimates Euler's e using recursion
+    Estimates Euler's e using recursion
+    with no user input
     """
-    #limit = 0
-    args = int(get_args())
-    #args = 100    
-    if n < args:
-        return (1/math.factorial(n)) + e_recursive_estimator(args, n+1)
- 
+    if n > args.recursion_depth:
+        return 0 
     else:
-        return 0
+        n+=1
+        return (1/math.factorial(n-1)) + e_recursive_estimator(args, n)
 
-#print (e_recursive_estimator())
 
 def main():
     args = get_args()
-    print (e_recursive_estimator(args, 0))
+    print(e_recursive_estimator(args))
     #pass
 
 if __name__ == '__main__':
     main()
+
